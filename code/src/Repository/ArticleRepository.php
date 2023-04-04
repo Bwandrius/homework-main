@@ -12,4 +12,12 @@ class ArticleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Article::class);
     }
+
+    public function orderByUpdatedAt(): array
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.updatedAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }
