@@ -7,6 +7,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
+#[ORM\HasLifecycleCallbacks()]
 class Article
 {
     #[ORM\Id]
@@ -22,6 +23,9 @@ class Article
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
+
+    #[ORM\Column(type: "datetime")]
+    private ?\DateTimeInterface $updatedAt = null;
 
     /**
      * @return int|null
@@ -77,5 +81,34 @@ class Article
     public function setImage(?string $image): void
     {
         $this->image = $image;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTimeInterface $updatedAt
+     * @return $this
+     */
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return void
+     */
+    #[ORM\PreUpdate]
+    #[ORM\PrePersist]
+    public function updateTimestamp(): void
+    {
+        $this->setUpdatedAt(new \DateTime());
     }
 }
