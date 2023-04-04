@@ -58,13 +58,32 @@ class __TwigTemplate_df1eb86cf6f94d26c0da31a0fc3a0c09 extends Template
 
     ";
         // line 12
-        $this->displayBlock('main', $context, $blocks);
-        // line 13
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 12));
+        foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+            // line 13
+            echo "        <div class=\"alert alert-success\">
+            ";
+            // line 14
+            echo twig_escape_filter($this->env, $context["message"], "html", null, true);
+            echo "
+        </div>
+    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 17
         echo "
     ";
-        // line 14
+        // line 18
+        $this->displayBlock('main', $context, $blocks);
+        // line 19
+        echo "
+    ";
+        // line 20
         $this->displayBlock('footer_js', $context, $blocks);
-        // line 17
+        // line 23
         echo "    </body>
 </html>
 ";
@@ -101,7 +120,7 @@ class __TwigTemplate_df1eb86cf6f94d26c0da31a0fc3a0c09 extends Template
 
     }
 
-    // line 12
+    // line 18
     public function block_main($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -113,14 +132,14 @@ class __TwigTemplate_df1eb86cf6f94d26c0da31a0fc3a0c09 extends Template
 
     }
 
-    // line 14
+    // line 20
     public function block_footer_js($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer_js"));
 
-        // line 15
+        // line 21
         echo "        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN\" crossorigin=\"anonymous\"></script>
     ";
         
@@ -133,9 +152,14 @@ class __TwigTemplate_df1eb86cf6f94d26c0da31a0fc3a0c09 extends Template
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  124 => 15,  117 => 14,  105 => 12,  97 => 7,  90 => 6,  77 => 5,  68 => 17,  66 => 14,  63 => 13,  61 => 12,  56 => 9,  54 => 6,  50 => 5,  44 => 1,);
+        return array (  143 => 21,  136 => 20,  124 => 18,  116 => 7,  109 => 6,  96 => 5,  87 => 23,  85 => 20,  82 => 19,  80 => 18,  77 => 17,  68 => 14,  65 => 13,  61 => 12,  56 => 9,  54 => 6,  50 => 5,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -150,6 +174,12 @@ class __TwigTemplate_df1eb86cf6f94d26c0da31a0fc3a0c09 extends Template
         {% endblock %}
     </head>
     <body>
+
+    {% for message in app.flashes('success') %}
+        <div class=\"alert alert-success\">
+            {{ message }}
+        </div>
+    {% endfor %}
 
     {% block main %}{% endblock %}
 

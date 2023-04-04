@@ -9,6 +9,12 @@
     </head>
     <body>
 
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     {% block main %}{% endblock %}
 
     {% block footer_js %}

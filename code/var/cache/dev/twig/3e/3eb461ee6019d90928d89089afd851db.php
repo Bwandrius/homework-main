@@ -64,14 +64,17 @@ class __TwigTemplate_3f42140e65e8e8fa5d52e6b303e7fb5f extends Template
         </div>
     </section>
 
+
+
     <main>
         <div class=\"py-5 bg-light\">
             <div class=\"container\">
                 <div class=\"row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3\">
+
                     ";
-        // line 16
+        // line 19
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 16, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 19, $this->source); })()));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -86,13 +89,13 @@ class __TwigTemplate_3f42140e65e8e8fa5d52e6b303e7fb5f extends Template
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 17
+            // line 20
             echo "                        <div class=\"col\">
                             ";
-            // line 18
-            $this->loadTemplate("_partials/article-card.html.twig", "pages/index.html.twig", 18)->display(twig_array_merge($context, ["article" =>             // line 19
-$context["article"]]));
             // line 21
+            $this->loadTemplate("_partials/article-card.html.twig", "pages/index.html.twig", 21)->display(twig_array_merge($context, ["article" =>             // line 22
+$context["article"]]));
+            // line 24
             echo "                        </div>
                     ";
             ++$context['loop']['index0'];
@@ -107,7 +110,7 @@ $context["article"]]));
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 23
+        // line 26
         echo "                </div>
             </div>
         </div>
@@ -130,7 +133,7 @@ $context["article"]]));
 
     public function getDebugInfo()
     {
-        return array (  111 => 23,  96 => 21,  94 => 19,  93 => 18,  90 => 17,  73 => 16,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  114 => 26,  99 => 24,  97 => 22,  96 => 21,  93 => 20,  76 => 19,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -146,10 +149,13 @@ $context["article"]]));
         </div>
     </section>
 
+
+
     <main>
         <div class=\"py-5 bg-light\">
             <div class=\"container\">
                 <div class=\"row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3\">
+
                     {% for article in articles %}
                         <div class=\"col\">
                             {% include '_partials/article-card.html.twig' with {
