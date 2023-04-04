@@ -26,7 +26,7 @@ class ArticleController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'Success');
-            return $this->redirectToRoute('admin_article_list');
+            return $this->redirectToRoute('pages/index.html.twig');
         }
         return $this->render('pages/article_edit.html.twig', [
             'articleForm' => $form->createView()
