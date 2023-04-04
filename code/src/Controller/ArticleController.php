@@ -13,8 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     #[Route('/article/{id}/edit', name: 'article_edit')]
-    public function edit(Article $article, Request $request, EntityManagerInterface $em)
+    public function edit(Article $article, Request $request, EntityManagerInterface $em): Response
     {
+//        $repository = $em->getRepository(Article::class);
+//        $article = $repository->find($id);
+//        dd($article);
+
         $form = $this->createForm(ArticleFormTYpe::class, $article);
         $form->handleRequest($request);
 
@@ -26,7 +30,7 @@ class ArticleController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'Success');
-            return $this->redirectToRoute('pages/index.html.twig');
+            return $this->redirectToRoute('home');
         }
         return $this->render('pages/article_edit.html.twig', [
             'articleForm' => $form->createView()

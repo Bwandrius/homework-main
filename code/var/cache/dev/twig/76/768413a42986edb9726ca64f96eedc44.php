@@ -57,20 +57,27 @@ class __TwigTemplate_47bb35c637020deccf4380838697466c extends Template
 
         // line 4
         echo "
-    ";
-        // line 5
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["articleForm"]) || array_key_exists("articleForm", $context) ? $context["articleForm"] : (function () { throw new RuntimeError('Variable "articleForm" does not exist.', 5, $this->source); })()), 'form_start');
+    <div class=\"card\">
+        <div class=\"card-header\">
+            <h5 class=\"card-title\">Edit Article</h5>
+        </div>
+        <div class=\"card-body\">
+            ";
+        // line 10
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["articleForm"]) || array_key_exists("articleForm", $context) ? $context["articleForm"] : (function () { throw new RuntimeError('Variable "articleForm" does not exist.', 10, $this->source); })()), 'form_start');
         echo "
-        ";
-        // line 6
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["articleForm"]) || array_key_exists("articleForm", $context) ? $context["articleForm"] : (function () { throw new RuntimeError('Variable "articleForm" does not exist.', 6, $this->source); })()), 'widget');
+            ";
+        // line 11
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["articleForm"]) || array_key_exists("articleForm", $context) ? $context["articleForm"] : (function () { throw new RuntimeError('Variable "articleForm" does not exist.', 11, $this->source); })()), 'widget');
         echo "
 
-        <button type=\"submit\" class=\"btn btn-primary\">Save</button>
-    ";
-        // line 9
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["articleForm"]) || array_key_exists("articleForm", $context) ? $context["articleForm"] : (function () { throw new RuntimeError('Variable "articleForm" does not exist.', 9, $this->source); })()), 'form_end');
+            <button type=\"submit\" class=\"btn btn-primary\">Save</button>
+            ";
+        // line 14
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["articleForm"]) || array_key_exists("articleForm", $context) ? $context["articleForm"] : (function () { throw new RuntimeError('Variable "articleForm" does not exist.', 14, $this->source); })()), 'form_end');
         echo "
+        </div>
+    </div>
 
 ";
         
@@ -90,7 +97,7 @@ class __TwigTemplate_47bb35c637020deccf4380838697466c extends Template
 
     public function getDebugInfo()
     {
-        return array (  72 => 9,  66 => 6,  62 => 5,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  77 => 14,  71 => 11,  67 => 10,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -99,11 +106,18 @@ class __TwigTemplate_47bb35c637020deccf4380838697466c extends Template
 
 {% block main %}
 
-    {{ form_start(articleForm) }}
-        {{ form_widget(articleForm) }}
+    <div class=\"card\">
+        <div class=\"card-header\">
+            <h5 class=\"card-title\">Edit Article</h5>
+        </div>
+        <div class=\"card-body\">
+            {{ form_start(articleForm) }}
+            {{ form_widget(articleForm) }}
 
-        <button type=\"submit\" class=\"btn btn-primary\">Save</button>
-    {{ form_end(articleForm) }}
+            <button type=\"submit\" class=\"btn btn-primary\">Save</button>
+            {{ form_end(articleForm) }}
+        </div>
+    </div>
 
 {% endblock %}", "pages/article_edit.html.twig", "/code/templates/pages/article_edit.html.twig");
     }
