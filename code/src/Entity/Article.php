@@ -111,4 +111,29 @@ class Article
     {
         $this->setUpdatedAt(new \DateTime());
     }
+
+    /**
+     * @return string
+     */
+    public function readingTime(): string
+    {
+        $wpm = 200;
+        $words = preg_split('/\s+/', $this->getText());
+        $count = 0;
+
+        foreach ($words as $word) {
+            $count += (strlen($word) > 3) ? 1 : 0;
+        }
+        
+        //counts in minutes
+        $minutes = floor($count / $wpm);
+
+        if ($minutes == 0) {
+            return 'less than 1 minute';
+        } else if ($minutes == 1) {
+            return $minutes . ' minute';
+        } else {
+            return $minutes . ' minutes';
+        }
+    }
 }
