@@ -125,7 +125,6 @@ class Article
             $count += (strlen($word) > 3) ? 1 : 0;
         }
 
-        //counts in minutes
         $minutes = floor($count / $wpm);
 
         if ($minutes == 0) {
