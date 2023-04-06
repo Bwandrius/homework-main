@@ -124,7 +124,7 @@ class Article
         foreach ($words as $word) {
             $count += (strlen($word) > 3) ? 1 : 0;
         }
-        
+
         //counts in minutes
         $minutes = floor($count / $wpm);
 

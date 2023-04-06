@@ -76,7 +76,12 @@ class __TwigTemplate_47bb35c637020deccf4380838697466c extends Template
         // line 14
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["articleForm"]) || array_key_exists("articleForm", $context) ? $context["articleForm"] : (function () { throw new RuntimeError('Variable "articleForm" does not exist.', 14, $this->source); })()), 'form_end');
         echo "
+            <a href=\"";
+        // line 15
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\" type=\"button\" class=\"btn btn-secondary px-3 gap-3\">Back</a>
         </div>
+
     </div>
 
 ";
@@ -97,7 +102,7 @@ class __TwigTemplate_47bb35c637020deccf4380838697466c extends Template
 
     public function getDebugInfo()
     {
-        return array (  77 => 14,  71 => 11,  67 => 10,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  81 => 15,  77 => 14,  71 => 11,  67 => 10,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -116,7 +121,9 @@ class __TwigTemplate_47bb35c637020deccf4380838697466c extends Template
 
             <button type=\"submit\" class=\"btn btn-primary\">Save</button>
             {{ form_end(articleForm) }}
+            <a href=\"{{ path('home') }}\" type=\"button\" class=\"btn btn-secondary px-3 gap-3\">Back</a>
         </div>
+
     </div>
 
 {% endblock %}", "pages/article_edit.html.twig", "/code/templates/pages/article_edit.html.twig");
