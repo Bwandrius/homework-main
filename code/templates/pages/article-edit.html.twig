@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Edit Article</h5>
+        </div>
+        <div class="card-body">
+            {{ form_start(articleForm) }}
+            {{ form_widget(articleForm) }}
+
+            <button type="submit" class="btn btn-primary">Save</button>
+            {{ form_end(articleForm) }}
+            <a href="{{ path('home') }}" type="button" class="btn btn-secondary px-3 gap-3">Back</a>
+        </div>
+
+    </div>
+{% endblock %}

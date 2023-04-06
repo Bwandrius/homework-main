@@ -28,7 +28,7 @@ class ArticleController extends AbstractController
             $this->addFlash('success', 'Article updated successfully');
             return $this->redirectToRoute('home');
         }
-        return $this->render('pages/article_edit.html.twig', [
+        return $this->render('pages/article-edit.html.twig', [
             'articleForm' => $form->createView()
         ]);
     }
