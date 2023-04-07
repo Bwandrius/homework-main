@@ -42,7 +42,7 @@ class ArticleTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    public function testReadingTimefour(): void
+    public function testReadingTimeFour(): void
     {
         $article = new Article();
         $article->setText(str_repeat('is ', 500));

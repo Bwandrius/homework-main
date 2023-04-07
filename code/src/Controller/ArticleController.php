@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use App\Form\ArticleFormTYpe;
+use App\Form\ArticleFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,7 +15,7 @@ class ArticleController extends AbstractController
     #[Route('/article/{id}/edit', name: 'article_edit')]
     public function edit(Article $article, Request $request, EntityManagerInterface $em): Response
     {
-        $form = $this->createForm(ArticleFormTYpe::class, $article);
+        $form = $this->createForm(ArticleFormType::class, $article);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
